@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>当前天气</h2> 
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>城市</th>
+        <th>天气</th>
+        <th>温度</th>
+        <th>体感</th>
+        <th>风力</th>
+        <th>湿度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let weather of weathers.list">
+        <td>{{weather.name}}</td>
+        <td>{{weather.weather[0].description}}</td>
+        <td>{{weather.main.temp}}</td>
+        <td>{{weather.main.feels_like}}</td>
+        <td>{{weather.wind.speed}}</td>
+        <td>{{weather.main.humidity}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+    <h2>预测天气-Mississauga</h2> 
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th>天气</th>
+          <th>温度</th>
+          <th>体感</th>
+          <th>风力</th>
+          <th>湿度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let forcast of forcasts.list">
+          <td>{{forcast.dt * 1000 | date:'medium' }}</td>
+          <td>{{forcast.weather[0].description}}</td>
+          <td>{{forcast.main.temp}}</td>
+          <td>{{forcast.main.feels_like}}</td>
+          <td>{{forcast.wind.speed}}</td>
+          <td>{{forcast.main.humidity}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+</body>
+</html>
